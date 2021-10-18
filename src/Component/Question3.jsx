@@ -21,6 +21,7 @@ function Question3() {
             localStorage.setItem("buttonp32",radioRef2.current.checked)
             localStorage.setItem("buttonp33",radioRef3.current.checked)
              history.push('/page4')
+             localStorage.setItem("disabled2","disabled")
          }
     }
     const back = (e) => {
@@ -30,12 +31,14 @@ function Question3() {
     return (
         <div> 
             <form>
+                <fieldset disabled={localStorage.getItem("disabled2")}>
             <input type='radio' className='radio-button1' onClick="checked() == true;" name='re' ref={radioRef1} checked={JSON.parse(a) === true}/>
             <p>opsi 1</p>
             <input type='radio' className='radio-button2' onClick="checked() == true;" name='re' ref={radioRef2} checked={JSON.parse(b) === true}/>
             <p>opsi 2</p>
             <input type='radio' className='radio-button3' onClick="checked() == true;" name='re' ref={radioRef3} checked={JSON.parse(c) === true}/>  
             <p>opsi 3</p>
+            </fieldset>
             <button onClick={next}>Next</button>   
             <button onClick={back}>Prev</button>    
  

@@ -20,6 +20,7 @@ function Question2() {
             localStorage.setItem("buttonp22",radioRef2.current.checked)
             localStorage.setItem("buttonp23",radioRef3.current.checked)
              history.push('/page3')
+             localStorage.setItem("disabled1","disabled")
          }
     }
 
@@ -31,12 +32,14 @@ function Question2() {
     return (
         <div> 
             <form>
+            <fieldset disabled={localStorage.getItem("disabled1")}>
             <input type='radio' className='radio-button1' onClick="checked() == true;"  name='re' ref={radioRef1} checked = {JSON.parse(a) === true} />
             <p>opsi 1</p>
             <input type='radio' className='radio-button2' onClick="checked() == true;" name='re' ref={radioRef2} checked = {JSON.parse(b) === true}/>
             <p>opsi 2</p>
             <input type='radio' className='radio-button3' onClick="checked() == true;" name='re' ref={radioRef3} checked = {JSON.parse(c) === true}/>  
             <p>opsi 3</p>
+            </fieldset>
             <button onClick={next}>Next</button>   
             <button onClick={back}>Prev</button>     
             </form>
